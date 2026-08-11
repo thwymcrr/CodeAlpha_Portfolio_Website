@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hire Me | Swayam Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+
+
+    <style>
+
+        /* ================================
+           RESET
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                'Gill Sans',
+                'Gill Sans MT',
+                Calibri,
+                'Trebuchet MS',
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(0, 139, 139, 0.12),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(255, 69, 0, 0.10),
+                    transparent 35%
+                ),
+
+                #f4f7f8;
+
+            color: #222;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ================================
+           NAVBAR
+        ================================= */
+
+        .navbar {
+            width: 100%;
+
+            background: darkcyan;
+
+            padding: 14px 5%;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.18);
+        }
+
+
+        .navdiv {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .nav-links {
+            list-style: none;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 5px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .nav-links li {
+            list-style: none;
+        }
+
+
+        .nav-links li a {
+            position: relative;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            padding: 9px 10px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .nav-links li a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 10px;
+            bottom: 3px;
+
+            width: 0;
+            height: 2px;
+
+            background: white;
+
+            transition: 0.3s ease;
+        }
+
+
+        .nav-links li a:hover::after {
+            width: calc(100% - 20px);
+        }
+
+
+        .nav-links li a:hover {
+            color: #dfffff;
+        }
+
+
+        /* ================================
+           MAIN SECTION
+        ================================= */
+
+        .hire-section {
+            width: min(1100px, 92%);
+
+            margin: 55px auto 70px;
+        }
+
+
+        /* ================================
+           HEADER
+        ================================= */
+
+        .page-header {
+            text-align: center;
+
+            margin-bottom: 40px;
+
+            animation: fadeDown 0.7s ease;
+        }
+
+
+        .page-header h1 {
+            font-family: Arial, sans-serif;
+
+            font-size:
+                clamp(40px, 5vw, 60px);
+
+            color: darkblue;
+
+            margin-bottom: 12px;
+        }
+
+
+        .page-header h1 span {
+            color: orangered;
+        }
+
+
+        .page-header p {
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #666;
+
+            line-height: 1.7;
+
+            font-size: 16px;
+        }
+
+
+        .heading-line {
+            width: 80px;
+
+            height: 4px;
+
+            background: orangered;
+
+            border-radius: 20px;
+
+            margin: 20px auto 0;
+        }
+
+
+        /* ================================
+           HIRE CONTENT
+        ================================= */
+
+        .hire-wrapper {
+            display: grid;
+
+            grid-template-columns:
+                0.85fr 1.5fr;
+
+            gap: 30px;
+
+            align-items: stretch;
+        }
+
+
+        /* ================================
+           LEFT CARD
+        ================================= */
+
+        .hire-info {
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #111827,
+                    #202b38
+                );
+
+            color: white;
+
+            border-radius: 22px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.16);
+
+            animation: fadeUp 0.8s ease;
+        }
+
+
+        .hire-info::before {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 139, 139, 0.13);
+
+            top: -100px;
+            right: -80px;
+        }
+
+
+        .hire-info::after {
+            content: "";
+
+            position: absolute;
+
+            width: 170px;
+            height: 170px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 69, 0, 0.10);
+
+            bottom: -90px;
+            left: -70px;
+        }
+
+
+        .hire-info-content {
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .hire-icon {
+            width: 65px;
+            height: 65px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: darkcyan;
+
+            border-radius: 50%;
+
+            font-size: 27px;
+
+            margin-bottom: 22px;
+
+            box-shadow:
+                0 10px 25px rgba(0, 139, 139, 0.3);
+        }
+
+
+        .hire-info h2 {
+            font-size: 28px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .hire-info h2 span {
+            color: #ff7043;
+        }
+
+
+        .hire-info p {
+            color: #d4d7da;
+
+            line-height: 1.7;
+
+            font-size: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ================================
+           SERVICES
+        ================================= */
+
+        .service-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 13px;
+        }
+
+
+        .service-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: #eeeeee;
+
+            font-size: 15px;
+        }
+
+
+        .service-item i {
+            color: #20c4c4;
+
+            width: 20px;
+        }
+
+
+        /* ================================
+           FORM CARD
+        ================================= */
+
+        .hire-form-card {
+            background: white;
+
+            border-radius: 22px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.10);
+
+            border:
+                1px solid rgba(0, 0, 0, 0.06);
+
+            animation: fadeUp 0.9s ease;
+        }
+
+
+        .hire-form-card h2 {
+            color: darkblue;
+
+            font-size: 27px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .hire-form-card > p {
+            color: #777;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ================================
+           FORM
+        ================================= */
+
+        .hire-form {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+
+        .form-group label {
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: #333;
+        }
+
+
+        .required {
+            color: orangered;
+        }
+
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+
+            border:
+                1px solid #d7dce0;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            background: #fafbfc;
+
+            color: #222;
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        .form-input,
+        .form-select {
+            height: 48px;
+
+            padding: 0 14px;
+        }
+
+
+        .form-textarea {
+            min-height: 130px;
+
+            resize: vertical;
+
+            padding: 13px 14px;
+        }
+
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: darkcyan;
+
+            background: white;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0, 139, 139, 0.12);
+        }
+
+
+        /* ================================
+           BUDGET OPTIONS
+        ================================= */
+
+        .budget-options {
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .budget-option {
+            position: relative;
+        }
+
+
+        .budget-option input {
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+
+        .budget-option label {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 8px 15px;
+
+            border:
+                1px solid #d7dce0;
+
+            border-radius: 30px;
+
+            background: #fafbfc;
+
+            color: #444;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+        }
+
+
+        .budget-option label:hover {
+            border-color: darkcyan;
+
+            color: darkcyan;
+        }
+
+
+        .budget-option input:checked + label {
+            background: darkcyan;
+
+            border-color: darkcyan;
+
+            color: white;
+        }
+
+
+        /* ================================
+           BUTTONS
+        ================================= */
+
+        .form-buttons {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 5px;
+        }
+
+
+        .form-btn {
+            border: none;
+
+            padding: 11px 22px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        .submit-btn {
+            background: orangered;
+
+            color: white;
+        }
+
+
+        .submit-btn:hover {
+            background: darkcyan;
+
+            transform: translateY(-2px);
+        }
+
+
+        .reset-btn {
+            background: #e8e8ec;
+
+            color: #333;
+        }
+
+
+        .reset-btn:hover {
+            background: #d4d4d8;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ================================
+           FORM MESSAGE
+        ================================= */
+
+        .form-message {
+            display: none;
+
+            padding: 12px 15px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .form-message.success {
+            display: block;
+
+            background: #e8f8f3;
+
+            color: #08734d;
+
+            border: 1px solid #b9ead8;
+        }
+
+
+        .form-message.error {
+            display: block;
+
+            background: #fff0ee;
+
+            color: #a82d1c;
+
+            border: 1px solid #ffc8c0;
+        }
+
+
+        /* ================================
+           ANIMATIONS
+        ================================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ================================
+           TABLET
+        ================================= */
+
+        @media (max-width: 900px) {
+
+            .hire-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hire-info {
+                text-align: center;
+            }
+
+
+            .hire-icon {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            .service-list {
+                align-items: center;
+            }
+
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                position: relative;
+
+                padding: 13px 7px;
+            }
+
+
+            .nav-links {
+                gap: 1px;
+            }
+
+
+            .nav-links li a {
+                font-size: 12px;
+
+                padding: 7px 5px;
+            }
+
+
+            .hire-section {
+                width: 92%;
+
+                margin:
+                    35px auto 50px;
+            }
+
+
+            .hire-info,
+            .hire-form-card {
+                padding: 25px 20px;
+
+                border-radius: 18px;
+            }
+
+
+            .hire-info h2,
+            .hire-form-card h2 {
+                font-size: 24px;
+            }
+
+
+            .form-buttons {
+                flex-direction: column;
+            }
+
+
+            .form-btn {
+                width: 100%;
+            }
+
+        }
+
+
+        /* ================================
+           SMALL PHONES
+        ================================= */
+
+        @media (max-width: 380px) {
+
+            .nav-links li a {
+                font-size: 10px;
+
+                padding: 6px 3px;
+            }
+
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+
+            .budget-options {
+                flex-direction: column;
+            }
+
+
+            .budget-option label {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         NAVIGATION
+    ================================== -->
+
+    <nav class="navbar">
+
+        <div class="navdiv">
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="main.html" target="main">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html" target="main">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="service.html" target="main">
+                        Service
+                    </a>
+                </li>
+
+                <li>
+                    <a href="education.html" target="main">
+                        Education
+                    </a>
+                </li>
+
+                <li>
+                    <a href="skill.html" target="main">
+                        Skill
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projects.html" target="main">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contactme.html" target="main">
+                        Contact Me
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =================================
+         HIRE ME SECTION
+    ================================== -->
+
+    <main class="hire-section">
+
+
+        <!-- HEADER -->
+
+        <section class="page-header">
+
+            <h1>
+                HIRE <span>ME</span>
+            </h1>
+
+
+            <p>
+                Have a project in mind? Let's turn your
+                idea into something creative, useful and
+                impactful.
+            </p>
+
+
+            <div class="heading-line"></div>
+
+        </section>
+
+
+
+        <!-- CONTENT -->
+
+        <section class="hire-wrapper">
+
+
+            <!-- =================================
+                 LEFT INFORMATION
+            ================================== -->
+
+            <div class="hire-info">
+
+                <div class="hire-info-content">
+
+
+                    <div class="hire-icon">
+
+                        <i class="fa-solid fa-handshake"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Let's <span>Work Together</span>
+                    </h2>
+
+
+                    <p>
+                        I am interested in web development,
+                        UI/UX design and creative digital
+                        projects. If you have an idea or
+                        project, feel free to contact me.
+                    </p>
+
+
+                    <div class="service-list">
+
+
+                        <div class="service-item">
+
+                            <i class="fa-solid fa-code"></i>
+
+                            <span>
+                                Web Development
+                            </span>
+
+                        </div>
+
+
+                        <div class="service-item">
+
+                            <i class="fa-solid fa-palette"></i>
+
+                            <span>
+                                UI/UX Design
+                            </span>
+
+                        </div>
+
+
+                        <div class="service-item">
+
+                            <i class="fa-solid fa-laptop-code"></i>
+
+                            <span>
+                                Frontend Development
+                            </span>
+
+                        </div>
+
+
+                        <div class="service-item">
+
+                            <i class="fa-solid fa-lightbulb"></i>
+
+                            <span>
+                                Creative Digital Projects
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 HIRE FORM
+            ================================== -->
+
+            <div class="hire-form-card">
+
+
+                <h2>
+                    Tell Me About Your Project
+                </h2>
+
+
+                <p>
+                    Fill in the details and I'll get
+                    back to you.
+                </p>
+
+
+                <form
+                    class="hire-form"
+                    id="hireForm"
+                >
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                            <span class="required">*</span>
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="name"
+                            class="form-input"
+                            placeholder="Enter your name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Your Email
+                            <span class="required">*</span>
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            class="form-input"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- PROJECT TYPE -->
+
+                    <div class="form-group">
+
+                        <label for="project">
+                            Project Type
+                        </label>
+
+
+                        <select
+                            id="project"
+                            class="form-select"
+                        >
+
+                            <option value="">
+                                Select project type
+                            </option>
+
+                            <option value="Website">
+                                Website
+                            </option>
+
+                            <option value="Web Application">
+                                Web Application
+                            </option>
+
+                            <option value="UI UX Design">
+                                UI/UX Design
+                            </option>
+
+                            <option value="Frontend Development">
+                                Frontend Development
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- BUDGET -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Estimated Budget
+                        </label>
+
+
+                        <div class="budget-options">
+
+
+                            <div class="budget-option">
+
+                                <input
+                                    type="radio"
+                                    id="budget1"
+                                    name="budget"
+                                    value="Below 5000"
+                                >
+
+                                <label for="budget1">
+                                    Below ₹5K
+                                </label>
+
+                            </div>
+
+
+                            <div class="budget-option">
+
+                                <input
+                                    type="radio"
+                                    id="budget2"
+                                    name="budget"
+                                    value="5000-10000"
+                                >
+
+                                <label for="budget2">
+                                    ₹5K - ₹10K
+                                </label>
+
+                            </div>
+
+
+                            <div class="budget-option">
+
+                                <input
+                                    type="radio"
+                                    id="budget3"
+                                    name="budget"
+                                    value="Above 10000"
+                                >
+
+                                <label for="budget3">
+                                    ₹10K+
+                                </label>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group">
+
+                        <label for="projectMessage">
+                            Project Details
+                            <span class="required">*</span>
+                        </label>
+
+
+                        <textarea
+                            id="projectMessage"
+                            class="form-textarea"
+                            placeholder="Tell me about your project..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- FORM MESSAGE -->
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                    ></div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="form-buttons">
+
+                        <button
+                            type="submit"
+                            class="form-btn submit-btn"
+                        >
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                            Send Request
+
+                        </button>
+
+
+                        <button
+                            type="reset"
+                            class="form-btn reset-btn"
+                            id="resetBtn"
+                        >
+
+                            <i class="fa-solid fa-rotate-left"></i>
+
+                            Reset
+
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+        const hireForm =
+            document.getElementById("hireForm");
+
+
+        const formMessage =
+            document.getElementById("formMessage");
+
+
+        const resetBtn =
+            document.getElementById("resetBtn");
+
+
+
+        hireForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById("name")
+                        .value
+                        .trim();
+
+
+                const email =
+                    document.getElementById("email")
+                        .value
+                        .trim();
+
+
+                const projectMessage =
+                    document.getElementById("projectMessage")
+                        .value
+                        .trim();
+
+
+
+                /* NAME VALIDATION */
+
+                if (name.length < 2) {
+
+                    showMessage(
+                        "Please enter a valid name.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* EMAIL VALIDATION */
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (
+                    !emailPattern.test(email)
+                ) {
+
+                    showMessage(
+                        "Please enter a valid email address.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* MESSAGE VALIDATION */
+
+                if (
+                    projectMessage.length < 10
+                ) {
+
+                    showMessage(
+                        "Please provide some details about your project.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* SUCCESS */
+
+                showMessage(
+                    `Thanks ${name}! Your project request has been received.`,
+                    "success"
+                );
+
+            }
+        );
+
+
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            formMessage.textContent =
+                message;
+
+            formMessage.className =
+                "form-message " + type;
+
+        }
+
+
+
+        resetBtn.addEventListener(
+            "click",
+            function () {
+
+                setTimeout(
+                    function () {
+
+                        formMessage.textContent =
+                            "";
+
+                        formMessage.className =
+                            "form-message";
+
+                    },
+                    0
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -7,23 +7,20 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contact Me | Swayam Portfolio</title>
+    <title>Contact Me | Swayam</title>
 
-    <!-- Font Awesome -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     >
 
-
     <style>
 
-        /* =========================================
+        /* =========================
            RESET
-        ========================================= */
+        ========================= */
 
         * {
             margin: 0;
@@ -31,11 +28,9 @@
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
-
 
         body {
             min-height: 100vh;
@@ -48,40 +43,25 @@
                 sans-serif;
 
             background:
-                radial-gradient(
-                    circle at top left,
-                    rgba(0, 139, 139, 0.14),
-                    transparent 35%
-                ),
-
-                radial-gradient(
-                    circle at bottom right,
-                    rgba(255, 69, 0, 0.12),
-                    transparent 35%
-                ),
-
-                #f4f7f8;
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #eef7f7
+                );
 
             color: #222;
-        }
 
+            overflow-x: hidden;
+        }
 
         a {
             text-decoration: none;
         }
 
 
-        button,
-        input,
-        textarea,
-        select {
-            font: inherit;
-        }
-
-
-        /* =========================================
+        /* =========================
            NAVBAR
-        ========================================= */
+        ========================= */
 
         .navbar {
             width: 100%;
@@ -91,44 +71,70 @@
             padding: 14px 5%;
 
             position: sticky;
+
             top: 0;
 
             z-index: 1000;
 
             box-shadow:
-                0 5px 20px rgba(0, 0, 0, 0.18);
+                0 5px 20px
+                rgba(0, 0, 0, 0.15);
         }
-
 
         .navdiv {
             display: flex;
 
             align-items: center;
-            justify-content: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
         }
 
 
-        .nav-links {
-            list-style: none;
+        /* LOGO */
 
+        .logo a {
+            color: lightskyblue;
+
+            font-size: 30px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            transition: 0.3s ease;
+        }
+
+        .logo a:hover {
+            color: white;
+        }
+
+
+        /* NAVIGATION */
+
+        .navdiv ul {
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             gap: 5px;
 
+            list-style: none;
+
             flex-wrap: wrap;
         }
 
-
-        .nav-links li {
+        .navdiv li {
             list-style: none;
         }
 
-
-        .nav-links li a {
+        .navdiv li a {
             position: relative;
+
+            display: inline-block;
 
             color: white;
 
@@ -136,21 +142,26 @@
 
             font-weight: bold;
 
-            padding: 9px 10px;
+            padding: 8px 10px;
 
             transition: 0.3s ease;
         }
 
+        .navdiv li a:hover {
+            color: #eaffff;
+        }
 
-        .nav-links li a::after {
+        .navdiv li a:not(.contact-nav-btn)::after {
             content: "";
 
             position: absolute;
 
             left: 10px;
-            bottom: 3px;
+
+            bottom: 2px;
 
             width: 0;
+
             height: 2px;
 
             background: white;
@@ -158,363 +169,278 @@
             transition: 0.3s ease;
         }
 
-
-        .nav-links li a:hover::after {
+        .navdiv li a:not(.contact-nav-btn):hover::after {
             width: calc(100% - 20px);
-        }
-
-
-        .nav-links li a:hover {
-            color: #dfffff;
         }
 
 
         /* CONTACT BUTTON */
 
         .contact-nav-btn {
-            border: none;
-
             background: black;
 
             border-radius: 10px;
 
-            padding: 10px 15px;
+            padding: 10px 15px !important;
 
-            margin-left: 7px;
-
-            cursor: pointer;
-
-            transition: 0.3s ease;
+            margin-left: 5px;
         }
-
-
-        .contact-nav-btn a {
-            color: white !important;
-
-            font-size: 14px !important;
-
-            font-weight: bold !important;
-        }
-
 
         .contact-nav-btn:hover {
             background: #444;
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
 
 
-        /* =========================================
+        /* =========================
            MAIN CONTACT SECTION
-        ========================================= */
+        ========================= */
 
         .contact-section {
-            width: min(1150px, 92%);
 
-            margin: 55px auto 70px;
-        }
+            min-height:
+                calc(100vh - 75px);
 
+            padding:
+                60px 7%;
 
-        /* =========================================
-           HEADER
-        ========================================= */
-
-        .contact-header {
-            text-align: center;
-
-            margin-bottom: 40px;
-
-            animation:
-                fadeDown 0.7s ease;
-        }
-
-
-        .contact-header h1 {
-            font-family: Arial, sans-serif;
-
-            font-size:
-                clamp(38px, 5vw, 58px);
-
-            color: darkblue;
-
-            margin-bottom: 12px;
-        }
-
-
-        .contact-header h1 span {
-            color: orangered;
-        }
-
-
-        .contact-header h2 {
-            font-size:
-                clamp(22px, 3vw, 32px);
-
-            margin-bottom: 15px;
-
-            color: #222;
-        }
-
-
-        .contact-header h2 span {
-            color: darkcyan;
-        }
-
-
-        .contact-header p {
-            max-width: 720px;
-
-            margin: 0 auto;
-
-            color: #666;
-
-            line-height: 1.7;
-
-            font-size: 16px;
-        }
-
-
-        .heading-line {
-            width: 80px;
-
-            height: 4px;
-
-            background: orangered;
-
-            border-radius: 20px;
-
-            margin: 20px auto 0;
-        }
-
-
-        /* =========================================
-           CONTACT LAYOUT
-        ========================================= */
-
-        .contact-wrapper {
             display: grid;
 
             grid-template-columns:
-                0.85fr 1.5fr;
+                0.9fr 1.1fr;
 
-            gap: 30px;
-
-            align-items: stretch;
-        }
-
-
-        /* =========================================
-           CONTACT INFORMATION
-        ========================================= */
-
-        .contact-info {
-            position: relative;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #111827,
-                    #202b38
-                );
-
-            color: white;
-
-            border-radius: 22px;
-
-            padding: 35px;
-
-            box-shadow:
-                0 18px 40px rgba(0, 0, 0, 0.16);
-
-            animation:
-                fadeUp 0.8s ease;
-        }
-
-
-        .contact-info::before {
-            content: "";
-
-            position: absolute;
-
-            width: 220px;
-            height: 220px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(0, 139, 139, 0.13);
-
-            top: -100px;
-            right: -80px;
-        }
-
-
-        .contact-info::after {
-            content: "";
-
-            position: absolute;
-
-            width: 170px;
-            height: 170px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255, 69, 0, 0.10);
-
-            bottom: -90px;
-            left: -70px;
-        }
-
-
-        .contact-info-content {
-            position: relative;
-
-            z-index: 2;
-        }
-
-
-        .contact-icon {
-            width: 65px;
-            height: 65px;
-
-            display: flex;
+            gap: 55px;
 
             align-items: center;
-            justify-content: center;
-
-            background: darkcyan;
-
-            border-radius: 50%;
-
-            font-size: 26px;
-
-            margin-bottom: 22px;
-
-            box-shadow:
-                0 10px 25px rgba(0, 139, 139, 0.3);
         }
 
 
-        .contact-info h3 {
-            font-size: 27px;
+        /* =========================
+           LEFT SIDE
+        ========================= */
 
-            margin-bottom: 12px;
+        .contact-info-section {
+
+            animation:
+                fadeLeft 0.8s ease;
         }
 
+        .contact-info-section h1 {
 
-        .contact-info h3 span {
-            color: #ff7043;
+            font-size:
+                clamp(45px, 6vw, 70px);
+
+            line-height: 1;
+
+            color:
+                rgb(36, 32, 30);
+
+            margin-bottom: 20px;
         }
 
+        .contact-info-section h1 span {
 
-        .contact-info > .contact-info-content > p {
-            color: #d4d7da;
+            color:
+                orangered;
+        }
 
-            line-height: 1.7;
+        .contact-info-section h2 {
 
-            font-size: 15px;
+            color:
+                darkcyan;
+
+            font-size: 28px;
+
+            margin-bottom: 18px;
+        }
+
+        .contact-info-section > p {
+
+            max-width: 500px;
+
+            color: #555;
+
+            font-size: 17px;
+
+            line-height: 1.8;
 
             margin-bottom: 30px;
         }
 
 
-        /* =========================================
-           SOCIAL ICONS
-        ========================================= */
+        /* =========================
+           CONTACT DETAILS
+        ========================= */
 
-        .social-links {
+        .details {
+
             display: flex;
 
-            gap: 14px;
+            flex-direction: column;
 
-            flex-wrap: wrap;
+            gap: 18px;
+
+            margin-bottom: 30px;
         }
 
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
+        .detail {
 
             display: flex;
 
             align-items: center;
+
+            gap: 15px;
+        }
+
+        .detail-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
             justify-content: center;
 
             border-radius: 50%;
 
+            background:
+                darkcyan;
+
+            color: white;
+
+            font-size: 18px;
+        }
+
+        .detail-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 3px;
+        }
+
+        .detail-text strong {
+
+            color: #222;
+
+            font-size: 15px;
+        }
+
+        .detail-text span {
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SOCIAL ICONS
+        ========================= */
+
+        .social-icons {
+
+            display: flex;
+
+            gap: 15px;
+        }
+
+        .social-icons a {
+
+            width: 44px;
+
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 139, 139, 0.08);
+
+            color: #222;
+
+            transition: 0.3s ease;
+        }
+
+        .social-icons a:hover {
+
             color: white;
 
             background:
-                rgba(255, 255, 255, 0.09);
+                darkcyan;
 
-            border:
-                1px solid rgba(255, 255, 255, 0.15);
-
-            font-size: 21px;
-
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease;
-        }
-
-
-        .social-links a:hover {
             transform:
-                translateY(-5px)
-                scale(1.08);
+                translateY(-4px);
+        }
 
-            background: darkcyan;
+        .social-icons i {
+
+            font-size: 20px;
         }
 
 
-        /* =========================================
+        /* =========================
            FORM CARD
-        ========================================= */
+        ========================= */
 
-        .contact-form-card {
+        .form-card {
+
             background: white;
-
-            border-radius: 22px;
 
             padding: 35px;
 
+            border-radius: 18px;
+
             box-shadow:
-                0 18px 40px rgba(0, 0, 0, 0.10);
+                0 15px 40px
+                rgba(0, 0, 0, 0.10);
 
             border:
-                1px solid rgba(0, 0, 0, 0.06);
+                1px solid
+                rgba(0, 0, 0, 0.06);
 
             animation:
-                fadeUp 0.9s ease;
+                fadeRight 0.8s ease;
         }
 
+        .form-card h2 {
 
-        .contact-form-card h3 {
-            color: darkblue;
-
-            font-size: 27px;
+            font-size: 30px;
 
             margin-bottom: 8px;
+
+            color: #222;
         }
 
+        .form-card > p {
 
-        .contact-form-card > p {
             color: #777;
 
-            font-size: 14px;
+            font-size: 15px;
 
             margin-bottom: 25px;
         }
 
 
-        /* =========================================
+        /* =========================
            FORM
-        ========================================= */
+        ========================= */
 
         .contact-form {
+
             display: flex;
 
             flex-direction: column;
@@ -522,8 +448,8 @@
             gap: 18px;
         }
 
-
         .form-group {
+
             display: flex;
 
             flex-direction: column;
@@ -531,65 +457,71 @@
             gap: 7px;
         }
 
-
         .form-group label {
-            font-size: 14px;
-
-            font-weight: bold;
 
             color: #333;
+
+            font-size: 15px;
+
+            font-weight: bold;
         }
 
-
         .required {
+
             color: orangered;
         }
 
 
-        .contact-input,
-        .contact-select,
-        .contact-textarea {
+        /* INPUTS */
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+
             width: 100%;
 
             border:
-                1px solid #d7dce0;
+                1px solid #d6dce0;
 
-            border-radius: 12px;
-
-            outline: none;
+            border-radius: 10px;
 
             background: #fafbfc;
 
-            color: #222;
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 15px;
 
             transition:
-                border-color 0.25s ease,
-                box-shadow 0.25s ease,
-                background 0.25s ease;
+                0.25s ease;
         }
 
+        .form-input,
+        .form-select {
 
-        .contact-input,
-        .contact-select {
             height: 48px;
 
-            padding: 0 14px;
+            padding:
+                0 14px;
         }
 
+        .form-textarea {
 
-        .contact-textarea {
-            min-height: 125px;
+            min-height: 130px;
+
+            padding:
+                13px 14px;
 
             resize: vertical;
-
-            padding: 13px 14px;
         }
 
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
 
-        .contact-input:focus,
-        .contact-select:focus,
-        .contact-textarea:focus {
-            border-color: darkcyan;
+            border-color:
+                darkcyan;
 
             background: white;
 
@@ -599,25 +531,21 @@
         }
 
 
-        /* =========================================
-           QUERY RADIO BUTTONS
-        ========================================= */
+        /* =========================
+           RADIO OPTIONS
+        ========================= */
 
         .query-options {
+
             display: flex;
 
-            gap: 10px;
-
             flex-wrap: wrap;
+
+            gap: 10px;
         }
-
-
-        .query-option {
-            position: relative;
-        }
-
 
         .query-option input {
+
             position: absolute;
 
             opacity: 0;
@@ -625,17 +553,19 @@
             pointer-events: none;
         }
 
-
         .query-option label {
+
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
-            padding: 8px 16px;
+            padding:
+                8px 16px;
 
             border:
-                1px solid #d7dce0;
+                1px solid #d6dce0;
 
             border-radius: 30px;
 
@@ -645,31 +575,37 @@
 
             cursor: pointer;
 
-            transition: 0.25s ease;
+            transition:
+                0.25s ease;
         }
-
 
         .query-option label:hover {
-            border-color: darkcyan;
 
-            color: darkcyan;
+            border-color:
+                darkcyan;
+
+            color:
+                darkcyan;
         }
 
-
         .query-option input:checked + label {
-            background: darkcyan;
 
-            border-color: darkcyan;
+            background:
+                darkcyan;
+
+            border-color:
+                darkcyan;
 
             color: white;
         }
 
 
-        /* =========================================
-           FORM BUTTONS
-        ========================================= */
+        /* =========================
+           BUTTONS
+        ========================= */
 
         .form-buttons {
+
             display: flex;
 
             gap: 12px;
@@ -677,290 +613,291 @@
             margin-top: 5px;
         }
 
-
         .form-btn {
+
             border: none;
 
-            min-width: 110px;
-
-            padding: 11px 20px;
-
             border-radius: 10px;
+
+            padding:
+                12px 20px;
+
+            font-family: inherit;
+
+            font-size: 15px;
 
             font-weight: bold;
 
             cursor: pointer;
 
             transition:
-                transform 0.25s ease,
-                background 0.25s ease;
+                0.3s ease;
         }
 
+        .send-btn {
 
-        .submit-btn {
-            background: orangered;
+            background:
+                orangered;
 
             color: white;
         }
 
+        .send-btn:hover {
 
-        .submit-btn:hover {
-            background: darkcyan;
+            background:
+                darkcyan;
 
             transform:
                 translateY(-2px);
         }
-
 
         .reset-btn {
-            background: #e8e8ec;
 
-            color: #333;
+            background:
+                #e5e5e8;
+
+            color:
+                #333;
         }
 
-
         .reset-btn:hover {
-            background: #d4d4d8;
+
+            background:
+                #d3d3d6;
 
             transform:
                 translateY(-2px);
         }
 
 
-        /* =========================================
-           FORM MESSAGE
-        ========================================= */
+        /* =========================
+           SUCCESS MESSAGE
+        ========================= */
 
-        .form-message {
+        .message {
+
             display: none;
 
-            padding: 12px 15px;
+            padding:
+                12px 15px;
 
             border-radius: 10px;
+
+            background:
+                #e7f8f1;
+
+            color:
+                #08734d;
+
+            border:
+                1px solid #b7e7d5;
 
             font-size: 14px;
 
             line-height: 1.5;
         }
 
+        .message.show {
 
-        .form-message.success {
             display: block;
-
-            background:
-                #e8f8f3;
-
-            color:
-                #08734d;
-
-            border:
-                1px solid #b9ead8;
         }
 
 
-        .form-message.error {
-            display: block;
-
-            background:
-                #fff0ee;
-
-            color:
-                #a82d1c;
-
-            border:
-                1px solid #ffc8c0;
-        }
-
-
-        /* =========================================
+        /* =========================
            ANIMATIONS
-        ========================================= */
+        ========================= */
 
-        @keyframes fadeUp {
+        @keyframes fadeLeft {
 
             from {
                 opacity: 0;
-
                 transform:
-                    translateY(30px);
+                    translateX(-35px);
             }
 
             to {
                 opacity: 1;
-
                 transform:
-                    translateY(0);
+                    translateX(0);
             }
-
         }
 
-
-        @keyframes fadeDown {
+        @keyframes fadeRight {
 
             from {
                 opacity: 0;
-
                 transform:
-                    translateY(-20px);
+                    translateX(35px);
             }
 
             to {
                 opacity: 1;
-
                 transform:
-                    translateY(0);
+                    translateX(0);
             }
-
         }
 
 
-        /* =========================================
+        /* =========================
            TABLET
-        ========================================= */
+        ========================= */
 
         @media (max-width: 900px) {
 
-            .contact-wrapper {
-                grid-template-columns: 1fr;
+            .navbar {
+                position: relative;
             }
 
+            .navdiv {
+                flex-direction: column;
+            }
 
-            .contact-info {
+            .contact-section {
+
+                grid-template-columns:
+                    1fr;
+
+                padding:
+                    50px 6%;
+
+                gap: 40px;
+            }
+
+            .contact-info-section {
+
                 text-align: center;
             }
 
+            .contact-info-section > p {
 
-            .contact-icon {
                 margin-left: auto;
+
                 margin-right: auto;
             }
 
+            .details {
 
-            .social-links {
-                justify-content: center;
+                align-items: center;
             }
 
+            .social-icons {
+
+                justify-content: center;
+            }
         }
 
 
-        /* =========================================
+        /* =========================
            MOBILE
-        ========================================= */
+        ========================= */
 
         @media (max-width: 600px) {
 
             .navbar {
-                position: relative;
 
-                padding: 13px 7px;
+                padding:
+                    12px 5px;
             }
 
+            .logo a {
 
-            .nav-links {
+                font-size: 26px;
+            }
+
+            .navdiv ul {
+
                 gap: 1px;
             }
 
+            .navdiv li a {
 
-            .nav-links li a {
-                font-size: 12px;
+                font-size: 10px;
 
-                padding: 7px 5px;
+                padding:
+                    6px 4px;
             }
-
 
             .contact-nav-btn {
-                padding: 8px 9px;
 
-                margin-left: 2px;
+                font-size: 10px !important;
+
+                padding:
+                    7px 8px !important;
             }
-
-
-            .contact-nav-btn a {
-                font-size: 11px !important;
-            }
-
 
             .contact-section {
-                width: 92%;
 
-                margin:
-                    35px auto 50px;
+                padding:
+                    40px 5% 50px;
             }
 
+            .contact-info-section h1 {
 
-            .contact-header {
-                margin-bottom: 30px;
+                font-size: 45px;
             }
 
+            .contact-info-section h2 {
 
-            .contact-header p {
-                font-size: 14px;
-            }
-
-
-            .contact-info,
-            .contact-form-card {
-                padding: 25px 20px;
-
-                border-radius: 18px;
-            }
-
-
-            .contact-info h3,
-            .contact-form-card h3 {
                 font-size: 24px;
             }
 
+            .contact-info-section > p {
+
+                font-size: 15px;
+            }
+
+            .form-card {
+
+                padding:
+                    25px 20px;
+            }
+
+            .form-card h2 {
+
+                font-size: 25px;
+            }
 
             .form-buttons {
+
                 flex-direction: column;
             }
 
-
             .form-btn {
+
                 width: 100%;
             }
-
         }
 
 
-        /* =========================================
-           VERY SMALL PHONES
-        ========================================= */
+        /* =========================
+           SMALL PHONES
+        ========================= */
 
         @media (max-width: 380px) {
 
-            .nav-links li a {
-                font-size: 10px;
+            .navdiv li a {
 
-                padding: 6px 3px;
+                font-size: 9px;
+
+                padding:
+                    5px 3px;
             }
-
 
             .contact-nav-btn {
-                padding: 7px 6px;
+
+                font-size: 9px !important;
             }
 
+            .contact-info-section h1 {
 
-            .contact-nav-btn a {
-                font-size: 10px !important;
+                font-size: 38px;
             }
 
+            .form-card {
 
-            .contact-header h1 {
-                font-size: 32px;
+                padding:
+                    20px 15px;
             }
-
-
-            .query-options {
-                flex-direction: column;
-            }
-
-
-            .query-option label {
-                width: 100%;
-            }
-
         }
 
     </style>
@@ -971,61 +908,71 @@
 <body>
 
 
-    <!-- =========================================
+    <!-- =========================
          NAVIGATION
-    ========================================== -->
+    ========================= -->
 
     <nav class="navbar">
 
         <div class="navdiv">
 
-            <ul class="nav-links">
+            <div class="logo">
+
+                <a href="main.html">
+                    PORTFOLIO
+                </a>
+
+            </div>
+
+
+            <ul>
 
                 <li>
-                    <a href="main.html" target="main">
+                    <a href="main.html">
                         Home
                     </a>
                 </li>
 
                 <li>
-                    <a href="about.html" target="main">
+                    <a href="about.html">
                         About
                     </a>
                 </li>
 
                 <li>
-                    <a href="service.html" target="main">
+                    <a href="service.html">
                         Service
                     </a>
                 </li>
 
                 <li>
-                    <a href="education.html" target="main">
+                    <a href="education.html">
                         Education
                     </a>
                 </li>
 
                 <li>
-                    <a href="skill.html" target="main">
+                    <a href="skill.html">
                         Skill
                     </a>
                 </li>
 
                 <li>
-                    <a href="projects.html" target="main">
+                    <a href="projects.html">
                         Projects
                     </a>
                 </li>
 
+                <!-- DIRECT CONTACT LINK -->
+
                 <li>
 
-                    <button class="contact-nav-btn">
-
-                        <a href="contactme.html" target="main">
-                            Contact Me
-                        </a>
-
-                    </button>
+                    <a
+                        href="contactme.html"
+                        class="contact-nav-btn"
+                    >
+                        Contact Me
+                    </a>
 
                 </li>
 
@@ -1036,389 +983,361 @@
     </nav>
 
 
-
-    <!-- =========================================
-         CONTACT SECTION
-    ========================================== -->
+    <!-- =========================
+         CONTACT CONTENT
+    ========================= -->
 
     <main class="contact-section">
 
 
-        <!-- HEADER -->
+        <!-- LEFT SIDE -->
 
-        <section class="contact-header">
+        <section class="contact-info-section">
 
             <h1>
-                CONTACT <span>ME</span>
+                CONTACT
+                <span>ME</span>
             </h1>
 
-
             <h2>
-                Let's <span>Work</span> Together
+                Let's Work Together
             </h2>
 
-
             <p>
-                To request a quote or want to meet up for a coffee,
-                contact me directly or fill out the form and I will
-                get back to you soon.
+                To request a quote or want to meet up
+                for a coffee, contact me directly or
+                fill out the form and I will get back
+                to you soon.
             </p>
 
 
-            <div class="heading-line"></div>
-
-        </section>
+            <div class="details">
 
 
+                <div class="detail">
 
-        <!-- CONTACT CONTENT -->
-
-        <section class="contact-wrapper">
-
-
-            <!-- =====================================
-                 LEFT CONTACT INFORMATION
-            ====================================== -->
-
-            <div class="contact-info">
-
-                <div class="contact-info-content">
-
-
-                    <div class="contact-icon">
-
+                    <div class="detail-icon">
                         <i class="fa-solid fa-envelope"></i>
-
                     </div>
 
+                    <div class="detail-text">
 
-                    <h3>
-                        Let's <span>Connect</span>
-                    </h3>
+                        <strong>
+                            Email
+                        </strong>
 
-
-                    <p>
-                        Have a project idea, collaboration,
-                        job opportunity or simply want to
-                        say hello? Feel free to reach out.
-                    </p>
-
-
-                    <!-- SOCIAL MEDIA -->
-
-                    <div class="social-links">
-
-                        <a
-                            href="#"
-                            aria-label="Facebook"
-                            title="Facebook"
-                        >
-
-                            <i class="fa-brands fa-facebook-f"></i>
-
-                        </a>
-
-
-                        <a
-                            href="#"
-                            aria-label="Instagram"
-                            title="Instagram"
-                        >
-
-                            <i class="fa-brands fa-instagram"></i>
-
-                        </a>
-
-
-                        <a
-                            href="#"
-                            aria-label="Twitter"
-                            title="Twitter"
-                        >
-
-                            <i class="fa-brands fa-twitter"></i>
-
-                        </a>
+                        <span>
+                            Your Email
+                        </span>
 
                     </div>
 
                 </div>
 
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div class="detail-text">
+
+                        <strong>
+                            Phone
+                        </strong>
+
+                        <span>
+                            Your Phone Number
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div class="detail-text">
+
+                        <strong>
+                            Location
+                        </strong>
+
+                        <span>
+                            Bhopal, India
+                        </span>
+
+                    </div>
+
+                </div>
+
+
             </div>
 
 
+            <!-- SOCIAL MEDIA -->
 
-            <!-- =====================================
-                 CONTACT FORM
-            ====================================== -->
+            <div class="social-icons">
 
-            <div class="contact-form-card">
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
 
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
 
-                <h3>
-                    Send Me a Message
-                </h3>
+                <a href="#" aria-label="Twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
 
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
 
-                <p>
-                    Fill in the details below and I'll
-                    get back to you as soon as possible.
-                </p>
+            </div>
 
-
-                <form
-                    class="contact-form"
-                    id="contactForm"
-                >
-
-
-                    <!-- NAME -->
-
-                    <div class="form-group">
-
-                        <label for="fname">
-                            Your Name
-                            <span class="required">*</span>
-                        </label>
+        </section>
 
 
-                        <input
-                            type="text"
-                            id="fname"
-                            name="fname"
-                            class="contact-input"
-                            placeholder="Enter your name"
-                            autocomplete="name"
-                            required
-                        >
+        <!-- RIGHT SIDE FORM -->
 
-                    </div>
+        <section class="form-card">
 
+            <h2>
+                Send Me a Message
+            </h2>
 
-
-                    <!-- EMAIL -->
-
-                    <div class="form-group">
-
-                        <label for="mail">
-                            Your Email
-                            <span class="required">*</span>
-                        </label>
+            <p>
+                Fill in the details below and
+                I'll get back to you.
+            </p>
 
 
-                        <input
-                            type="email"
-                            id="mail"
-                            name="mail"
-                            class="contact-input"
-                            placeholder="Enter your email"
-                            autocomplete="email"
-                            required
-                        >
-
-                    </div>
+            <form
+                class="contact-form"
+                id="contactForm"
+            >
 
 
+                <!-- NAME -->
 
-                    <!-- MESSAGE -->
+                <div class="form-group">
 
-                    <div class="form-group">
+                    <label for="name">
+                        Your Name
+                        <span class="required">*</span>
+                    </label>
 
-                        <label for="message">
-                            Your Message
-                            <span class="required">*</span>
-                        </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-input"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required
+                    >
 
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            class="contact-textarea"
-                            placeholder="Type your message here..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-
-                    <!-- QUERY -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Your Query
-                            <span class="required">*</span>
-                        </label>
+                </div>
 
 
-                        <div class="query-options">
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Your Email
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
 
 
-                            <div class="query-option">
+                <!-- SUBJECT -->
 
-                                <input
-                                    type="radio"
-                                    id="Work"
-                                    name="title"
-                                    value="Work"
-                                    required
-                                >
+                <div class="form-group">
 
-                                <label for="Work">
-                                    Work
-                                </label>
+                    <label for="subject">
+                        Subject
+                    </label>
 
-                            </div>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        class="form-input"
+                        placeholder="Enter subject"
+                    >
 
-
-                            <div class="query-option">
-
-                                <input
-                                    type="radio"
-                                    id="Job"
-                                    name="title"
-                                    value="Job"
-                                >
-
-                                <label for="Job">
-                                    Job
-                                </label>
-
-                            </div>
+                </div>
 
 
-                            <div class="query-option">
+                <!-- MESSAGE -->
 
-                                <input
-                                    type="radio"
-                                    id="Help"
-                                    name="title"
-                                    value="Help"
-                                >
+                <div class="form-group">
 
-                                <label for="Help">
-                                    Help
-                                </label>
+                    <label for="message">
+                        Your Message
+                        <span class="required">*</span>
+                    </label>
 
-                            </div>
+                    <textarea
+                        id="message"
+                        name="message"
+                        class="form-textarea"
+                        placeholder="Type your message here..."
+                        required
+                    ></textarea>
 
+                </div>
+
+
+                <!-- QUERY -->
+
+                <div class="form-group">
+
+                    <label>
+                        What are you contacting me about?
+                    </label>
+
+
+                    <div class="query-options">
+
+
+                        <div class="query-option">
+
+                            <input
+                                type="radio"
+                                id="work"
+                                name="query"
+                                value="Work"
+                                checked
+                            >
+
+                            <label for="work">
+                                Work
+                            </label>
+
+                        </div>
+
+
+                        <div class="query-option">
+
+                            <input
+                                type="radio"
+                                id="project"
+                                name="query"
+                                value="Project"
+                            >
+
+                            <label for="project">
+                                Project
+                            </label>
+
+                        </div>
+
+
+                        <div class="query-option">
+
+                            <input
+                                type="radio"
+                                id="freelance"
+                                name="query"
+                                value="Freelance"
+                            >
+
+                            <label for="freelance">
+                                Freelance
+                            </label>
+
+                        </div>
+
+
+                        <div class="query-option">
+
+                            <input
+                                type="radio"
+                                id="other"
+                                name="query"
+                                value="Other"
+                            >
+
+                            <label for="other">
+                                Other
+                            </label>
 
                         </div>
 
                     </div>
 
+                </div>
 
 
-                    <!-- QUALIFICATION -->
+                <!-- SUCCESS MESSAGE -->
 
-                    <div class="form-group">
-
-                        <label for="qualification">
-                            Your Qualification
-                        </label>
-
-
-                        <select
-                            id="qualification"
-                            name="qualification"
-                            class="contact-select"
-                        >
-
-                            <option value="Matriculation">
-                                Matriculation
-                            </option>
-
-                            <option value="Intermediate">
-                                Intermediate
-                            </option>
-
-                            <option value="Graduation">
-                                Graduation
-                            </option>
-
-                            <option value="Post Graduation">
-                                Post Graduation
-                            </option>
-
-                        </select>
-
-                    </div>
+                <div
+                    id="formMessage"
+                    class="message"
+                ></div>
 
 
+                <!-- BUTTONS -->
 
-                    <!-- MESSAGE -->
+                <div class="form-buttons">
 
-                    <div
-                        id="formMessage"
-                        class="form-message"
-                    ></div>
-
-
-
-                    <!-- BUTTONS -->
-
-                    <div class="form-buttons">
-
-                        <button
-                            type="submit"
-                            class="form-btn submit-btn"
-                        >
-
-                            <i class="fa-solid fa-paper-plane"></i>
-                            Submit
-
-                        </button>
+                    <button
+                        type="submit"
+                        class="form-btn send-btn"
+                    >
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send Message
+                    </button>
 
 
-                        <button
-                            type="reset"
-                            class="form-btn reset-btn"
-                            id="resetBtn"
-                        >
+                    <button
+                        type="reset"
+                        class="form-btn reset-btn"
+                    >
+                        Reset
+                    </button>
 
-                            <i class="fa-solid fa-rotate-left"></i>
-                            Reset
+                </div>
 
-                        </button>
-
-                    </div>
-
-
-                </form>
-
-            </div>
-
+            </form>
 
         </section>
-
 
     </main>
 
 
-
-    <!-- =========================================
+    <!-- =========================
          JAVASCRIPT
-    ========================================== -->
+    ========================= -->
 
     <script>
 
         const contactForm =
             document.getElementById("contactForm");
 
-
         const formMessage =
             document.getElementById("formMessage");
 
-
-        const resetBtn =
-            document.getElementById("resetBtn");
-
-
-
-        /* =========================================
-           FORM SUBMISSION
-        ========================================= */
 
         contactForm.addEventListener(
             "submit",
@@ -1426,146 +1345,49 @@
 
                 event.preventDefault();
 
-
                 const name =
-                    document.getElementById("fname")
-                        .value
-                        .trim();
+                    document
+                    .getElementById("name")
+                    .value
+                    .trim();
 
 
-                const email =
-                    document.getElementById("mail")
-                        .value
-                        .trim();
+                if (!name) {
 
+                    formMessage.textContent =
+                        "Please enter your name.";
 
-                const message =
-                    document.getElementById("message")
-                        .value
-                        .trim();
-
-
-                const query =
-                    document.querySelector(
-                        'input[name="title"]:checked'
-                    );
-
-
-
-                /* BASIC VALIDATION */
-
-                if (name.length < 2) {
-
-                    showMessage(
-                        "Please enter a valid name.",
-                        "error"
-                    );
+                    formMessage.classList.add("show");
 
                     return;
-
                 }
 
 
-                const emailPattern =
-                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                formMessage.textContent =
+                    "Thank you, " +
+                    name +
+                    "! Your message has been received.";
 
+                formMessage.classList.add("show");
 
-                if (
-                    !emailPattern.test(email)
-                ) {
-
-                    showMessage(
-                        "Please enter a valid email address.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                if (message.length < 5) {
-
-                    showMessage(
-                        "Please enter a longer message.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                if (!query) {
-
-                    showMessage(
-                        "Please select your query type.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-
-                /* SUCCESS */
-
-                showMessage(
-                    `Thank you, ${name}! Your message has been prepared successfully.`,
-                    "success"
-                );
+                contactForm.reset();
 
             }
         );
 
 
-
-        /* =========================================
-           SHOW MESSAGE
-        ========================================== */
-
-        function showMessage(
-            text,
-            type
-        ) {
-
-            formMessage.textContent =
-                text;
-
-            formMessage.className =
-                "form-message " + type;
-
-        }
-
-
-
-        /* =========================================
-           RESET MESSAGE
-        ========================================== */
-
-        resetBtn.addEventListener(
-            "click",
+        contactForm.addEventListener(
+            "reset",
             function () {
 
-                setTimeout(
-                    function () {
+                formMessage.textContent = "";
 
-                        formMessage.textContent =
-                            "";
-
-                        formMessage.className =
-                            "form-message";
-
-                    },
-                    0
-                );
+                formMessage.classList.remove("show");
 
             }
         );
 
     </script>
-
 
 </body>
 
