@@ -36,7 +36,7 @@ Responsive personal portfolio website built with HTML, CSS and JavaScript.
 ```text
 CodeAlpha_Portfolio_Website/
 │
-├── main.html
+├── index.html
 ├── about.html
 ├── service.html
 ├── education.html
