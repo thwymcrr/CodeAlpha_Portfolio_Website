@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Education | Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e8f1f5);
+            color: #222;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            background: darkcyan;
+            padding: 14px 5%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links li {
+            list-style: none;
+        }
+
+        .nav-links li a {
+            position: relative;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 8px 10px;
+            transition: 0.3s ease;
+        }
+
+        .nav-links li a::after {
+            content: "";
+            position: absolute;
+            left: 10px;
+            bottom: 2px;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: calc(100% - 20px);
+        }
+
+        .nav-links li a:hover {
+            color: #dffcff;
+        }
+
+        .contact-btn {
+            margin-left: 10px;
+            background: #111;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .contact-btn a {
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .contact-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           EDUCATION HEADER
+        ========================= */
+
+        .edu {
+            width: min(1150px, 92%);
+            margin: 50px auto;
+        }
+
+        .page-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .page-heading h1 {
+            font-family: Arial, sans-serif;
+            font-size: clamp(35px, 5vw, 52px);
+            color: darkblue;
+            margin-bottom: 10px;
+        }
+
+        .page-heading p {
+            color: #555;
+            font-size: 17px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .heading-line {
+            width: 75px;
+            height: 4px;
+            background: orangered;
+            border-radius: 20px;
+            margin: 15px auto 0;
+        }
+
+
+        /* =========================
+           EDUCATION CARDS
+        ========================= */
+
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .education-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+            padding: 28px;
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(74, 62, 62, 0.97),
+                    rgba(70, 20, 80, 0.90)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.18);
+
+            color: white;
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .education-card::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            top: -70px;
+            right: -70px;
+            transition: 0.4s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                0 22px 45px rgba(0, 0, 0, 0.28);
+        }
+
+        .education-card:hover::before {
+            transform: scale(1.3);
+        }
+
+
+        /* =========================
+           CARD TOP
+        ========================= */
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .education-card img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 15px;
+            background: white;
+            padding: 5px;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header h2 {
+            font-size: 23px;
+            line-height: 1.3;
+            color: white;
+        }
+
+        .education-icon {
+            color: #ffd166;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+
+        /* =========================
+           CARD CONTENT
+        ========================= */
+
+        .education-card p {
+            position: relative;
+            z-index: 2;
+
+            font-size: 16px;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.9);
+
+            text-align: left;
+        }
+
+        .education-card strong {
+            color: white;
+        }
+
+
+        /* =========================
+           CARD FOOTER
+        ========================= */
+
+        .card-footer {
+            position: absolute;
+            bottom: 22px;
+            left: 28px;
+            right: 28px;
+
+            padding-top: 14px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+            color: #d7ffff;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+
+        .education-card {
+            opacity: 0;
+            transform: translateY(35px);
+        }
+
+        .education-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .navbar {
+                padding: 14px 3%;
+            }
+
+            .navdiv {
+                justify-content: center;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .education-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                position: relative;
+                padding: 15px 10px;
+            }
+
+            .navdiv {
+                justify-content: center;
+            }
+
+            .nav-links {
+                gap: 4px;
+            }
+
+            .nav-links li a {
+                display: inline-block;
+                font-size: 14px;
+                padding: 7px 6px;
+            }
+
+            .contact-btn {
+                margin-left: 4px;
+                padding: 8px 10px;
+            }
+
+            .contact-btn a {
+                font-size: 13px;
+            }
+
+            .edu {
+                width: 92%;
+                margin: 35px auto;
+            }
+
+            .page-heading {
+                margin-bottom: 30px;
+            }
+
+            .page-heading h1 {
+                font-size: 36px;
+            }
+
+            .page-heading p {
+                font-size: 15px;
+            }
+
+            .education-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .education-card {
+                min-height: auto;
+                padding: 24px;
+                padding-bottom: 70px;
+            }
+
+            .card-header {
+                gap: 14px;
+            }
+
+            .education-card img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .card-header h2 {
+                font-size: 20px;
+            }
+
+            .education-card p {
+                font-size: 15px;
+                line-height: 1.65;
+            }
+
+            .card-footer {
+                left: 24px;
+                right: 24px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 430px) {
+
+            .nav-links li a {
+                font-size: 12px;
+                padding: 6px 4px;
+            }
+
+            .contact-btn {
+                padding: 7px 8px;
+            }
+
+            .contact-btn a {
+                font-size: 12px;
+            }
+
+            .page-heading h1 {
+                font-size: 32px;
+            }
+
+            .education-card {
+                border-radius: 18px;
+                padding: 20px;
+                padding-bottom: 65px;
+            }
+
+            .card-header {
+                align-items: flex-start;
+            }
+
+            .education-card img {
+                width: 55px;
+                height: 55px;
+            }
+
+            .card-header h2 {
+                font-size: 18px;
+            }
+
+            .education-card p {
+                font-size: 14px;
+            }
+
+            .card-footer {
+                left: 20px;
+                right: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="navdiv">
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="main.html" target="main">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html" target="main">About</a>
+                </li>
+
+                <li>
+                    <a href="service.html" target="main">Service</a>
+                </li>
+
+                <li>
+                    <a href="education.html" target="main">Education</a>
+                </li>
+
+                <li>
+                    <a href="skill.html" target="main">Skill</a>
+                </li>
+
+                <li>
+                    <a href="projects.html" target="main">Projects</a>
+                </li>
+
+                <li>
+                    <button class="contact-btn">
+                        <a href="contactme.html" target="main">
+                            Contact Me
+                        </a>
+                    </button>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         EDUCATION SECTION
+    ========================== -->
+
+    <main class="edu">
+
+        <div class="page-heading">
+
+            <h1>Education</h1>
+
+            <p>
+                My academic journey and professional learning experience
+                that helped me build my foundation in technology.
+            </p>
+
+            <div class="heading-line"></div>
+
+        </div>
+
+
+        <div class="education-container">
+
+
+            <!-- =========================
+                 EDUCATION 1
+            ========================== -->
+
+            <article class="education-card">
+
+                <div class="card-header">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf4W6ywcpoisi53W3NuwJAYcVuaBKXs1eKSg&s"
+                        alt="Master of Computer Science">
+
+                    <div>
+
+                        <div class="education-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+
+                        <h2>
+                            Master of Computer Science
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Specialized in Advanced Software Engineering,
+                    Machine Learning, and Human-Computer Interaction.
+                    Completed thesis on "Scalable Web Applications
+                    using Modern JavaScript Frameworks" with focus on
+                    performance optimization and user experience design.
+
+                    A Master of Computer Science (MCS or M.Sc.
+                    Computer Science) is a postgraduate degree focused
+                    on advanced, specialized topics in computer science,
+                    such as artificial intelligence, cybersecurity,
+                    or data science, often requiring a bachelor's degree
+                    in a related field and an entrance exam.
+                </p>
+
+
+                <div class="card-footer">
+                    <i class="fa-solid fa-code"></i>
+                    Advanced Computer Science
+                </div>
+
+            </article>
+
+
+
+            <!-- =========================
+                 EDUCATION 2
+            ========================== -->
+
+            <article class="education-card">
+
+                <div class="card-header">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGvx5xnMo4ctaNEMDV9816CxdmlNDNkDA-aw&s"
+                        alt="Bachelor of Software Engineering">
+
+                    <div>
+
+                        <div class="education-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <h2>
+                            Bachelor of Software Engineering
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Foundation in computer science fundamentals,
+                    data structures, algorithms, and software design
+                    patterns. Active member of the Programming Society
+                    and led multiple hackathon teams to victory.
+
+                    Senior project focused on developing a real-time
+                    collaboration platform. A Bachelor of Software
+                    Engineering is an undergraduate degree focused on
+                    applying engineering principles to the systematic
+                    design, development, and maintenance of software
+                    systems.
+                </p>
+
+
+                <div class="card-footer">
+                    <i class="fa-solid fa-code-branch"></i>
+                    Software Development
+                </div>
+
+            </article>
+
+
+
+            <!-- =========================
+                 EDUCATION 3
+            ========================== -->
+
+            <article class="education-card">
+
+                <div class="card-header">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSndrnX5QGOvmOhCDfgr4kheXuUrIw2YBkYiQ&s"
+                        alt="Professional Certifications">
+
+                    <div>
+
+                        <div class="education-icon">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+
+                        <h2>
+                            Professional Certifications
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    AWS Solutions Architect Professional, Google Cloud
+                    Professional Developer, Microsoft Azure Expert,
+                    MongoDB Certified Developer, Docker Certified
+                    Associate, and various other industry-recognized
+                    certifications in cloud computing, DevOps, and
+                    full-stack development.
+
+                    Professional AI certifications are available from
+                    major tech companies and institutions, such as
+                    Microsoft Azure AI Engineer Associate, IBM AI
+                    Engineering, and AWS Certified Machine Learning -
+                    Specialty, which validate practical skills in
+                    building AI solutions on their respective platforms.
+                </p>
+
+
+                <div class="card-footer">
+                    <i class="fa-solid fa-cloud"></i>
+                    Cloud • AI • DevOps
+                </div>
+
+            </article>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+         * Simple scroll/reveal animation
+         * for education cards.
+         */
+
+        const cards = document.querySelectorAll(".education-card");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+        cards.forEach((card, index) => {
+
+            card.style.transitionDelay = `${index * 0.15}s`;
+
+            observer.observe(card);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
