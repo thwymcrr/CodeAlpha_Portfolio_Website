@@ -5,20 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio | Swayam</title>
+    <meta name="description"
+        content="Swayam Prakash Mishra - Personal Portfolio Website showcasing skills, projects, education and contact information.">
 
-    <link
-        rel="stylesheet"
+    <meta name="author" content="Swayam Prakash Mishra">
+
+    <title>Swayam | Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    >
+        referrerpolicy="no-referrer" />
 
     <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            text-decoration: none;
         }
 
         html {
@@ -28,8 +39,8 @@
         body {
             min-height: 100vh;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            background: linear-gradient(135deg, #ffffff, #eef7f7);
-            color: #222;
+            background: linear-gradient(135deg, #f8ffff, #eefafa);
+            color: rgb(36, 32, 30);
             overflow-x: hidden;
         }
 
@@ -37,7 +48,10 @@
             text-decoration: none;
         }
 
-        /* ================= NAVBAR ================= */
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
         .navbar {
             width: 100%;
@@ -50,254 +64,688 @@
         }
 
         .navdiv {
+            max-width: 1400px;
+            margin: auto;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
         }
 
-        .logo a {
+        .LOGO a {
             color: lightskyblue;
-            font-size: 30px;
+            font-size: 35px;
             font-weight: 700;
             letter-spacing: 1px;
+            transition: 0.3s ease;
         }
 
-        .logo a:hover {
+        .LOGO a:hover {
             color: white;
+            transform: scale(1.03);
         }
 
-        .navdiv ul {
+        .nav-links {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 5px;
-            list-style: none;
-            flex-wrap: wrap;
         }
 
-        .navdiv li {
+        .nav-links li {
             list-style: none;
         }
 
-        .navdiv li a {
+        .nav-links li a {
             position: relative;
+
             display: inline-block;
+
             color: white;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 8px 10px;
+            font-size: 17px;
+            font-weight: 600;
+
+            padding: 10px 12px;
+
             transition: 0.3s ease;
         }
 
-        .navdiv li a:hover {
-            color: #eaffff;
-        }
+        /* Animated underline */
 
-        .navdiv li a:not(.contact-nav-btn)::after {
+        .nav-links li a::after {
             content: "";
+
             position: absolute;
-            left: 10px;
-            bottom: 2px;
+            left: 50%;
+            bottom: 3px;
+
             width: 0;
             height: 2px;
-            background: white;
+
+            background: lightskyblue;
+
+            transform: translateX(-50%);
             transition: 0.3s ease;
         }
 
-        .navdiv li a:not(.contact-nav-btn):hover::after {
-            width: calc(100% - 20px);
+        .nav-links li a:hover {
+            color: lightskyblue;
         }
 
-        /* CONTACT BUTTON */
+        .nav-links li a:hover::after {
+            width: 70%;
+        }
+
+
+        /* Contact button */
 
         .contact-nav-btn {
-            background: black;
+            background: #111 !important;
             border-radius: 10px;
-            padding: 10px 15px !important;
-            margin-left: 5px;
+            margin-left: 8px;
+            padding: 11px 16px !important;
+        }
+
+        .contact-nav-btn::after {
+            display: none;
         }
 
         .contact-nav-btn:hover {
-            background: #444;
+            background: orangered !important;
+            color: white !important;
             transform: translateY(-2px);
         }
 
-        /* ================= HERO ================= */
+
+        /* Mobile menu button */
+
+        .menu-toggle {
+            display: none;
+
+            background: transparent;
+            border: none;
+
+            color: white;
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO SECTION
+        ===================================================== */
 
         .hero {
+            position: relative;
+
             min-height: calc(100vh - 75px);
+
+            max-width: 1400px;
+            margin: auto;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 60px 7%;
-            gap: 40px;
+
+            overflow: hidden;
         }
+
+
+        /* Decorative circles */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            border-radius: 50%;
+
+            background: rgba(0, 139, 139, 0.08);
+
+            top: 60px;
+            left: -100px;
+
+            animation: floatingCircle 5s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 69, 0, 0.08);
+
+            bottom: 20px;
+            right: 35%;
+
+            animation: floatingCircle 4s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatingCircle {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+
+        /* =====================================================
+           INFORMATION
+        ===================================================== */
 
         .info {
+            position: relative;
+            z-index: 2;
+
             width: 55%;
-            animation: leftIn 0.8s ease;
+
+            animation: slideFromLeft 1s ease forwards;
         }
 
-        .intro {
-            font-size: 20px;
-            margin-bottom: 5px;
+        @keyframes slideFromLeft {
+
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro-text {
+            font-size: 21px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .intro-text span {
+            color: orangered;
+            font-weight: 700;
         }
 
         .name {
+            color: orangered;
             font-size: 30px;
-            color: darkcyan;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
+
+
+        /* Main heading */
 
         .info h1 {
             font-size: clamp(50px, 7vw, 85px);
-            line-height: 1;
-            margin-bottom: 25px;
+
             color: rgb(36, 32, 30);
+
+            line-height: 1;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 25px;
         }
 
         .info h1 span {
             color: rgb(230, 104, 59);
         }
 
+
+        /* Description */
+
         .description {
-            font-size: 18px;
-            line-height: 1.9;
+            font-size: 19px;
+            line-height: 1.8;
+
             letter-spacing: 0.5px;
-            color: #444;
-            margin-bottom: 20px;
+
+            color: #333;
+
+            margin-bottom: 25px;
         }
 
-        /* ================= HIRE BUTTON ================= */
+        .description span {
+            color: darkcyan;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 20px;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 13px 22px;
+
+            border-radius: 10px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            transition: 0.35s ease;
+
+            cursor: pointer;
+        }
+
+
+        /* Hire Me */
 
         .hire-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
             background: orangered;
             color: white;
-            padding: 12px 22px;
-            border-radius: 10px;
-            font-weight: bold;
-            margin: 10px 0 25px;
-            transition: 0.3s ease;
+
+            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.25);
         }
 
         .hire-btn:hover {
-            background: darkturquoise;
-            transform: translateY(-3px);
+            background: darkcyan;
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 12px 25px rgba(0, 139, 139, 0.25);
         }
 
-        /* ================= IMAGE ================= */
+
+        /* Resume */
+
+        .resume-btn {
+            background: #111;
+            color: white;
+        }
+
+        .resume-btn:hover {
+            background: darkcyan;
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =====================================================
+           PROFILE IMAGE
+        ===================================================== */
 
         .image {
+            position: relative;
+
+            z-index: 2;
+
             width: 40%;
-            min-height: 450px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            animation: slideFromRight 1s ease forwards;
+        }
+
+        @keyframes slideFromRight {
+
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-wrapper {
+            position: relative;
+
+            width: min(390px, 80vw);
+            height: min(390px, 80vw);
+
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: rightIn 0.8s ease;
+        }
+
+
+        /* Outer circle */
+
+        .image-wrapper::before {
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 50%;
+
+            border: 3px solid darkcyan;
+
+            animation: rotateCircle 12s linear infinite;
+        }
+
+        @keyframes rotateCircle {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* Orange ring */
+
+        .image-wrapper::after {
+            content: "";
+
+            position: absolute;
+
+            width: 88%;
+            height: 88%;
+
+            border-radius: 50%;
+
+            border: 4px solid orangered;
+
+            opacity: 0.6;
         }
 
         .image img {
-            max-width: 100%;
-            max-height: 520px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 30px;
-            filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.18));
-            transition: 0.4s ease;
+            position: relative;
+
+            z-index: 2;
+
+            width: 78%;
+            height: 78%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 7px solid white;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.25);
+
+            transition: 0.5s ease;
         }
 
         .image img:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: scale(1.04);
         }
 
-        /* ================= SOCIAL ICONS ================= */
+
+        /* =====================================================
+           SOCIAL ICONS
+        ===================================================== */
 
         .icons {
             display: flex;
-            gap: 15px;
+
+            align-items: center;
+
+            gap: 18px;
+
+            margin-top: 25px;
         }
 
         .icons a {
             width: 45px;
             height: 45px;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
-            color: #222;
-            background: rgba(0, 139, 139, 0.08);
+
             border-radius: 50%;
+
+            background: white;
+
+            color: #111;
+
+            font-size: 21px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
             transition: 0.3s ease;
         }
 
         .icons a:hover {
             color: white;
             background: darkcyan;
-            transform: translateY(-4px);
+
+            transform: translateY(-5px) rotate(5deg);
         }
 
-        .icons i {
-            font-size: 22px;
+
+        /* =====================================================
+           SCROLL INDICATOR
+        ===================================================== */
+
+        .scroll-indicator {
+            position: absolute;
+
+            bottom: 25px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: darkcyan;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 6px;
+
+            opacity: 0.7;
         }
 
-        /* ================= ANIMATION ================= */
+        .scroll-indicator i {
+            animation: scrollDown 1.5s infinite;
+        }
 
-        @keyframes leftIn {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
+        @keyframes scrollDown {
+
+            0% {
+                transform: translateY(0);
             }
 
-            to {
-                opacity: 1;
-                transform: translateX(0);
+            50% {
+                transform: translateY(7px);
+            }
+
+            100% {
+                transform: translateY(0);
             }
         }
 
-        @keyframes rightIn {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
 
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            text-align: center;
+
+            padding: 18px;
+
+            background: #102f2f;
+
+            color: white;
+
+            font-size: 14px;
         }
 
-        /* ================= TABLET ================= */
 
-        @media (max-width: 900px) {
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1000px) {
 
             .navbar {
-                position: relative;
+                padding: 14px 4%;
             }
 
-            .navdiv {
-                flex-direction: column;
+            .nav-links {
+                gap: 0;
+            }
+
+            .nav-links li a {
+                font-size: 15px;
+                padding: 9px 7px;
             }
 
             .hero {
-                min-height: auto;
-                flex-direction: column;
-                text-align: center;
                 padding: 50px 6%;
             }
 
             .info {
+                width: 55%;
+            }
+
+            .image {
+                width: 40%;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 15px 6%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 100%;
+                left: 0;
+
                 width: 100%;
-                display: flex;
+
+                background: darkcyan;
+
+                display: none;
+
                 flex-direction: column;
-                align-items: center;
+
+                padding: 15px 0 20px;
+
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links li a {
+                width: 100%;
+
+                padding: 12px;
+
+                font-size: 17px;
+            }
+
+            .contact-nav-btn {
+                width: auto !important;
+
+                margin: 8px 0 0 !important;
+            }
+
+
+            /* Hero */
+
+            .hero {
+                min-height: auto;
+
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 60px 6% 80px;
+
+                gap: 55px;
+            }
+
+            .info {
+                width: 100%;
+            }
+
+            .intro-text {
+                font-size: 19px;
+            }
+
+            .name {
+                font-size: 28px;
+            }
+
+            .info h1 {
+                font-size: clamp(45px, 13vw, 65px);
             }
 
             .description {
-                max-width: 650px;
+                font-size: 17px;
+                line-height: 1.7;
+            }
+
+            .hero-buttons {
+                justify-content: center;
             }
 
             .icons {
@@ -305,133 +753,141 @@
             }
 
             .image {
-                width: 75%;
-                min-height: 400px;
+                width: 100%;
+            }
+
+            .image-wrapper {
+                width: min(330px, 75vw);
+                height: min(330px, 75vw);
+            }
+
+            .scroll-indicator {
+                display: none;
             }
         }
 
-        /* ================= MOBILE ================= */
 
-        @media (max-width: 600px) {
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
 
-            .navbar {
-                padding: 12px 5px;
-            }
+        @media (max-width: 450px) {
 
-            .logo a {
-                font-size: 26px;
-            }
-
-            .navdiv ul {
-                gap: 1px;
-            }
-
-            .navdiv li a {
-                font-size: 10px;
-                padding: 6px 4px;
-            }
-
-            .contact-nav-btn {
-                font-size: 10px !important;
-                padding: 7px 8px !important;
+            .LOGO a {
+                font-size: 27px;
             }
 
             .hero {
-                padding: 40px 5%;
-            }
-
-            .intro {
-                font-size: 17px;
-            }
-
-            .name {
-                font-size: 25px;
+                padding-top: 45px;
             }
 
             .info h1 {
-                font-size: 44px;
+                font-size: 42px;
+
+                letter-spacing: 1px;
             }
 
             .description {
-                font-size: 15px;
-                line-height: 1.8;
+                font-size: 16px;
             }
 
-            .image {
+            .hero-buttons {
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+            .hero-btn {
                 width: 90%;
-                min-height: 320px;
+            }
+
+            .image-wrapper {
+                width: 270px;
+                height: 270px;
             }
         }
 
-        /* ================= SMALL PHONE ================= */
-
-        @media (max-width: 380px) {
-
-            .navdiv li a {
-                font-size: 9px;
-                padding: 5px 3px;
-            }
-
-            .contact-nav-btn {
-                font-size: 9px !important;
-            }
-
-            .info h1 {
-                font-size: 38px;
-            }
-
-            .image {
-                min-height: 280px;
-            }
-        }
     </style>
 </head>
 
+
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+
+    <!-- =====================================================
+         NAVIGATION BAR
+    ====================================================== -->
 
     <nav class="navbar">
 
         <div class="navdiv">
 
-            <div class="logo">
+            <!-- Logo -->
+
+            <div class="LOGO">
                 <a href="main.html">PORTFOLIO</a>
             </div>
 
-            <ul>
+
+            <!-- Mobile menu button -->
+
+            <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- Navigation links -->
+
+            <ul class="nav-links" id="navLinks">
 
                 <li>
-                    <a href="main.html">Home</a>
+                    <a href="main.html">
+                        Home
+                    </a>
                 </li>
 
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="about.html">
+                        About
+                    </a>
                 </li>
 
                 <li>
-                    <a href="service.html">Service</a>
+                    <a href="service.html">
+                        Service
+                    </a>
                 </li>
 
                 <li>
-                    <a href="education.html">Education</a>
+                    <a href="education.html">
+                        Education
+                    </a>
                 </li>
 
                 <li>
-                    <a href="skill.html">Skill</a>
+                    <a href="skill.html">
+                        Skill
+                    </a>
                 </li>
 
                 <li>
-                    <a href="projects.html">Projects</a>
+                    <a href="projects.html">
+                        Projects
+                    </a>
                 </li>
 
-                <!-- IMPORTANT: DIRECT LINK -->
+                <!-- WORKING CONTACT LINK -->
+
                 <li>
-                    <a
-                        href="contact.html"
-                        class="contact-nav-btn"
-                    >
+                    <a href="./contact.html"
+                        class="contact-nav-btn">
+
                         Contact Me
+
                     </a>
                 </li>
 
@@ -442,73 +898,244 @@
     </nav>
 
 
-    <!-- ================= HERO ================= -->
+
+    <!-- =====================================================
+         HERO / HOME SECTION
+    ====================================================== -->
 
     <main class="hero">
 
-        <div class="info">
 
-            <p class="intro">
+        <!-- LEFT SIDE -->
+
+        <section class="info">
+
+            <p class="intro-text">
                 HI, I'm
+                <span>Swayam.</span>
             </p>
 
-            <h2 class="name">
-                Swayam.
-            </h2>
 
             <h1>
                 <span>E</span>NGINEE<span>R</span>
             </h1>
 
+
             <p class="description">
-                I am also a web designer and developer.
+
+                I am also a
+                <span>web designer and developer.</span>
+
                 <br>
-                I create websites and also video editing.
+
+                I create websites and also work on
+                <span>video editing.</span>
+
                 <br>
-                I am a creative UI/UX designer.
+
+                I am a creative
+                <span>UI/UX designer.</span>
+
             </p>
 
-            <!-- HIRE ME -->
-            <a
-                href="hireme.html"
-                class="hire-btn"
-            >
-                Hire Me
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
 
-            <!-- SOCIAL ICONS -->
-            <div class="icons">
+            <!-- Buttons -->
 
-                <a href="#" aria-label="Facebook">
-                    <i class="fa-brands fa-square-facebook"></i>
+            <div class="hero-buttons">
+
+                <!-- WORKING HIRE ME BUTTON -->
+
+                <a href="./hireme.html"
+                    class="hero-btn hire-btn">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    Hire Me
+
                 </a>
 
-                <a href="#" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
 
-                <a href="#" aria-label="Twitter">
-                    <i class="fa-brands fa-twitter"></i>
+                <!-- RESUME BUTTON -->
+
+                <a href="./resume.pdf"
+                    download
+                    class="hero-btn resume-btn">
+
+                    <i class="fa-solid fa-file-arrow-down"></i>
+
+                    Download Resume
+
                 </a>
 
             </div>
 
-        </div>
+
+            <!-- Social Media -->
+
+            <div class="icons">
+
+                <a href="#"
+                    aria-label="Facebook">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
 
 
-        <!-- PROFILE IMAGE -->
+                <a href="#"
+                    aria-label="Instagram">
 
-        <div class="image">
+                    <i class="fa-brands fa-instagram"></i>
 
-            <img
-                src="images/pic.jpg"
-                alt="Swayam"
-            >
+                </a>
+
+
+                <a href="#"
+                    aria-label="Twitter">
+
+                    <i class="fa-brands fa-twitter"></i>
+
+                </a>
+
+
+                <a href="https://github.com/thwymcrr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub">
+
+                    <i class="fa-brands fa-github"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RIGHT SIDE / IMAGE -->
+
+        <section class="image">
+
+            <div class="image-wrapper">
+
+                <!-- Image is inside your images folder -->
+
+                <img src="./images/pic.jpg"
+                    alt="Swayam - Portfolio Profile Picture"
+                    class="me">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Scroll indicator -->
+
+        <div class="scroll-indicator">
+
+            <span>Explore</span>
+
+            <i class="fa-solid fa-chevron-down"></i>
 
         </div>
 
     </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Swayam Prakash Mishra | Personal Portfolio
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /*
+         * Mobile Navigation
+         */
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+            const icon = menuToggle.querySelector("i");
+
+            if (navLinks.classList.contains("active")) {
+
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            }
+
+        });
+
+
+        /*
+         * Close mobile menu after clicking a link
+         */
+
+        const navigationItems =
+            document.querySelectorAll(".nav-links a");
+
+        navigationItems.forEach(function (item) {
+
+            item.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            });
+
+        });
+
+
+        /*
+         * Prevent broken placeholder social links
+         * from jumping to the top of the page.
+         */
+
+        const emptySocialLinks =
+            document.querySelectorAll('.icons a[href="#"]');
+
+        emptySocialLinks.forEach(function (link) {
+
+            link.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+            });
+
+        });
+
+    </script>
 
 </body>
 
