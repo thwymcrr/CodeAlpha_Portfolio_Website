@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skills | Swayam Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+    <style>
+
+        /* ================================
+           RESET
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                'Gill Sans',
+                'Gill Sans MT',
+                Calibri,
+                'Trebuchet MS',
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(0, 139, 139, 0.12),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(255, 69, 0, 0.10),
+                    transparent 35%
+                ),
+
+                #f4f7f8;
+
+            color: #222;
+        }
+
+
+        /* ================================
+           NAVBAR
+        ================================= */
+
+        .navbar {
+            width: 100%;
+
+            background: darkcyan;
+
+            padding: 14px 5%;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.18);
+        }
+
+
+        .navdiv {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .nav-links {
+            list-style: none;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 5px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .nav-links li {
+            list-style: none;
+        }
+
+
+        .nav-links li a {
+            position: relative;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            padding: 9px 10px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .nav-links li a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 10px;
+            bottom: 3px;
+
+            width: 0;
+            height: 2px;
+
+            background: white;
+
+            transition: 0.3s ease;
+        }
+
+
+        .nav-links li a:hover {
+            color: #dfffff;
+        }
+
+
+        .nav-links li a:hover::after {
+            width: calc(100% - 20px);
+        }
+
+
+        /* CONTACT BUTTON */
+
+        .contact-btn {
+            border: none;
+
+            background: black;
+
+            border-radius: 10px;
+
+            padding: 10px 15px;
+
+            margin-left: 7px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .contact-btn a {
+            color: white !important;
+
+            font-size: 14px !important;
+
+            font-weight: bold !important;
+        }
+
+
+        .contact-btn:hover {
+            background: #444;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ================================
+           MAIN SECTION
+        ================================= */
+
+        .skills-section {
+            width: min(1200px, 92%);
+
+            margin: 55px auto;
+
+            padding-bottom: 50px;
+        }
+
+
+        /* ================================
+           PAGE HEADING
+        ================================= */
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-heading h1 {
+            font-family: Arial, sans-serif;
+
+            font-size: clamp(40px, 5vw, 58px);
+
+            color: darkblue;
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-heading h1 span {
+            color: orangered;
+        }
+
+
+        .section-heading p {
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #555;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        .heading-line {
+            width: 80px;
+
+            height: 4px;
+
+            background: orangered;
+
+            border-radius: 20px;
+
+            margin: 17px auto 0;
+        }
+
+
+        /* ================================
+           INTRODUCTION CARD
+        ================================= */
+
+        .intro-card {
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #151515,
+                    #28202d
+                );
+
+            color: white;
+
+            padding: 38px;
+
+            border-radius: 22px;
+
+            margin-bottom: 38px;
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.18);
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+
+        .intro-card.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        .intro-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 139, 139, 0.16);
+
+            top: -110px;
+            right: -70px;
+        }
+
+
+        .intro-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 160px;
+            height: 160px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 69, 0, 0.10);
+
+            bottom: -80px;
+            left: -50px;
+        }
+
+
+        .intro-content {
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+        }
+
+
+        .intro-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: darkcyan;
+
+            font-size: 28px;
+
+            box-shadow:
+                0 8px 20px rgba(0, 139, 139, 0.3);
+        }
+
+
+        .intro-content h2 {
+            font-size: 32px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .intro-content h2 span {
+            color: #ff7043;
+        }
+
+
+        .intro-content p {
+            max-width: 850px;
+
+            margin: auto;
+
+            color: #d6d6d6;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================================
+           SKILLS TITLE
+        ================================= */
+
+        .skills-title {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            margin: 35px 0 22px;
+        }
+
+
+        .skills-title h2 {
+            font-size: 28px;
+
+            color: #222;
+        }
+
+
+        .skills-title h2 i {
+            color: orangered;
+
+            margin-right: 8px;
+        }
+
+
+        .skills-count {
+            color: #666;
+
+            font-size: 14px;
+
+            background: white;
+
+            padding: 7px 14px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* ================================
+           SKILLS GRID
+        ================================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 22px;
+        }
+
+
+        /* ================================
+           SKILL CARD
+        ================================= */
+
+        .skill-card {
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 190px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 22px 15px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            border: 1px solid
+                rgba(0, 0, 0, 0.06);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.09);
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity 0.6s ease,
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+
+        .skill-card.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        .skill-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+            height: 4px;
+
+            left: 0;
+            top: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    darkcyan,
+                    orangered
+                );
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: 0.35s ease;
+        }
+
+
+        .skill-card:hover {
+            transform:
+                translateY(-9px);
+
+            border-color:
+                rgba(0, 139, 139, 0.25);
+
+            box-shadow:
+                0 18px 35px
+                rgba(0, 0, 0, 0.15);
+        }
+
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+
+        /* ================================
+           SKILL IMAGES
+        ================================= */
+
+        .skill-image {
+            width: 80px;
+            height: 80px;
+
+            object-fit: contain;
+
+            margin-bottom: 15px;
+
+            transition:
+                transform 0.35s ease;
+        }
+
+
+        .skill-card:hover .skill-image {
+            transform:
+                scale(1.10)
+                rotate(3deg);
+        }
+
+
+        /* ================================
+           SKILL NAME
+        ================================= */
+
+        .skill-name {
+            font-size: 17px;
+
+            font-weight: 700;
+
+            color: #222;
+
+            letter-spacing: 0.4px;
+        }
+
+
+        .skill-number {
+            position: absolute;
+
+            top: 10px;
+            right: 12px;
+
+            font-size: 11px;
+
+            color: #aaa;
+
+            font-weight: bold;
+        }
+
+
+        /* ================================
+           FOOTER MESSAGE
+        ================================= */
+
+        .skill-footer {
+            margin-top: 35px;
+
+            padding: 22px;
+
+            text-align: center;
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 22px
+                rgba(0, 0, 0, 0.07);
+        }
+
+
+        .skill-footer p {
+            color: #555;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        .skill-footer i {
+            color: orangered;
+
+            margin-right: 5px;
+        }
+
+
+        /* ================================
+           TABLET
+        ================================= */
+
+        @media (max-width: 1050px) {
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        /* ================================
+           SMALL TABLET
+        ================================= */
+
+        @media (max-width: 800px) {
+
+            .skills-section {
+                width: 92%;
+
+                margin-top: 40px;
+            }
+
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 18px;
+            }
+
+
+            .intro-card {
+                padding: 30px 22px;
+            }
+
+
+            .intro-content h2 {
+                font-size: 27px;
+            }
+
+
+            .intro-content p {
+                font-size: 15px;
+            }
+
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                position: relative;
+
+                padding: 13px 7px;
+            }
+
+
+            .nav-links {
+                gap: 1px;
+            }
+
+
+            .nav-links li a {
+                font-size: 12px;
+
+                padding: 7px 5px;
+            }
+
+
+            .contact-btn {
+                padding: 8px 9px;
+
+                margin-left: 2px;
+            }
+
+
+            .contact-btn a {
+                font-size: 11px !important;
+            }
+
+
+            .skills-section {
+                width: 92%;
+
+                margin:
+                    35px auto;
+            }
+
+
+            .section-heading {
+                margin-bottom: 30px;
+            }
+
+
+            .section-heading h1 {
+                font-size: 38px;
+            }
+
+
+            .section-heading p {
+                font-size: 14px;
+            }
+
+
+            .intro-card {
+                padding: 25px 18px;
+
+                border-radius: 18px;
+            }
+
+
+            .intro-icon {
+                width: 55px;
+                height: 55px;
+
+                font-size: 23px;
+            }
+
+
+            .intro-content h2 {
+                font-size: 24px;
+            }
+
+
+            .intro-content p {
+                font-size: 14px;
+
+                line-height: 1.7;
+            }
+
+
+            .skills-title {
+                margin-top: 28px;
+            }
+
+
+            .skills-title h2 {
+                font-size: 22px;
+            }
+
+
+            .skills-count {
+                font-size: 11px;
+
+                padding: 6px 10px;
+            }
+
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 14px;
+            }
+
+
+            .skill-card {
+                min-height: 165px;
+
+                padding: 18px 10px;
+
+                border-radius: 15px;
+            }
+
+
+            .skill-image {
+                width: 65px;
+                height: 65px;
+            }
+
+
+            .skill-name {
+                font-size: 14px;
+            }
+
+
+            .skill-footer {
+                padding: 18px;
+
+                margin-top: 25px;
+            }
+
+
+            .skill-footer p {
+                font-size: 13px;
+            }
+
+        }
+
+
+        /* ================================
+           VERY SMALL PHONES
+        ================================= */
+
+        @media (max-width: 380px) {
+
+            .nav-links li a {
+                font-size: 10px;
+
+                padding: 6px 3px;
+            }
+
+
+            .contact-btn {
+                padding: 7px 6px;
+            }
+
+
+            .contact-btn a {
+                font-size: 10px !important;
+            }
+
+
+            .section-heading h1 {
+                font-size: 32px;
+            }
+
+
+            .skills-grid {
+                gap: 10px;
+            }
+
+
+            .skill-card {
+                min-height: 145px;
+            }
+
+
+            .skill-image {
+                width: 58px;
+                height: 58px;
+            }
+
+
+            .skill-name {
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <nav class="navbar">
+
+        <div class="navdiv">
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="main.html" target="main">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html" target="main">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="service.html" target="main">
+                        Service
+                    </a>
+                </li>
+
+                <li>
+                    <a href="education.html" target="main">
+                        Education
+                    </a>
+                </li>
+
+                <li>
+                    <a href="skill.html" target="main">
+                        Skill
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projects.html" target="main">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+
+                    <button class="contact-btn">
+
+                        <a href="contactme.html" target="main">
+                            Contact Me
+                        </a>
+
+                    </button>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="skills-section">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="section-heading">
+
+            <h1>
+                My <span>Skills</span>
+            </h1>
+
+            <p>
+                A collection of technologies and tools that
+                I am learning and working with as a Computer
+                Science and AI/ML student.
+            </p>
+
+            <div class="heading-line"></div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             INTRODUCTION
+        ====================================== -->
+
+        <section class="intro-card">
+
+            <div class="intro-content">
+
+                <div class="intro-icon">
+
+                    <i class="fa-solid fa-code"></i>
+
+                </div>
+
+
+                <h2>
+                    What <span>I Do</span>
+                </h2>
+
+
+                <p>
+                    Hii, I'm Swayam from India. I'm a UI/UX
+                    designer and full stack developer.
+                    I'm doing bachelor's in CSE AIML and
+                    I'll graduate in the year 2028.
+                    Currently, I'm working as a freelancer
+                    and continuously improving my development
+                    skills.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TECHNOLOGIES TITLE
+        ====================================== -->
+
+        <div class="skills-title">
+
+            <h2>
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                Technologies
+
+            </h2>
+
+
+            <span class="skills-count">
+                10 Skills
+            </span>
+
+        </div>
+
+
+
+        <!-- =====================================
+             SKILLS
+        ====================================== -->
+
+        <section class="skills-grid">
+
+
+            <!-- 01 HTML -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    01
+                </span>
+
+
+                <img
+                    src="images/html.png"
+                    alt="HTML"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    HTML
+                </p>
+
+            </div>
+
+
+
+            <!-- 02 CSS -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    02
+                </span>
+
+
+                <img
+                    src="images/css-3.png"
+                    alt="CSS"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    CSS
+                </p>
+
+            </div>
+
+
+
+            <!-- 03 SASS -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    03
+                </span>
+
+
+                <img
+                    src="images/sass.png"
+                    alt="SASS"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    SASS
+                </p>
+
+            </div>
+
+
+
+            <!-- 04 JAVASCRIPT -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    04
+                </span>
+
+
+                <img
+                    src="images/java-script.png"
+                    alt="JavaScript"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    JAVASCRIPT
+                </p>
+
+            </div>
+
+
+
+            <!-- 05 REACT JS -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    05
+                </span>
+
+
+                <img
+                    src="images/structure.png"
+                    alt="React JS"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    REACT JS
+                </p>
+
+            </div>
+
+
+
+            <!-- 06 GITHUB -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    06
+                </span>
+
+
+                <img
+                    src="images/github.png"
+                    alt="GitHub"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    GITHUB
+                </p>
+
+            </div>
+
+
+
+            <!-- 07 NODE JS -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    07
+                </span>
+
+
+                <img
+                    src="images/nodejs.png"
+                    alt="Node JS"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    NODE JS
+                </p>
+
+            </div>
+
+
+
+            <!-- 08 JAVA -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    08
+                </span>
+
+
+                <img
+                    src="images/java.png"
+                    alt="Java"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    JAVA
+                </p>
+
+            </div>
+
+
+
+            <!-- 09 MONGODB -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    09
+                </span>
+
+
+                <img
+                    src="images/database-file.png"
+                    alt="MongoDB"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    MONGODB
+                </p>
+
+            </div>
+
+
+
+            <!-- 10 PYTHON -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    10
+                </span>
+
+
+                <img
+                    src="images/python.png"
+                    alt="Python"
+                    class="skill-image">
+
+
+                <p class="skill-name">
+                    PYTHON
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             BOTTOM MESSAGE
+        ====================================== -->
+
+        <div class="skill-footer">
+
+            <p>
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                I'm continuously learning new technologies
+                and improving my skills through projects,
+                practice, and real-world development.
+
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        /* -----------------------------------------
+           SCROLL REVEAL ANIMATION
+        ------------------------------------------ */
+
+        const animatedElements =
+            document.querySelectorAll(
+                ".intro-card, .skill-card"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+
+                (entries) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList
+                                    .add("visible");
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        animatedElements.forEach(
+            (element, index) => {
+
+                element.style.transitionDelay =
+                    `${index * 0.06}s`;
+
+                observer.observe(element);
+
+            }
+        );
+
+
+        /* -----------------------------------------
+           SKILL CARD CLICK EFFECT
+        ------------------------------------------ */
+
+        const skillCards =
+            document.querySelectorAll(
+                ".skill-card"
+            );
+
+
+        skillCards.forEach(
+            (card) => {
+
+                card.addEventListener(
+                    "click",
+                    () => {
+
+                        skillCards.forEach(
+                            (item) => {
+
+                                item.style.transform =
+                                    "";
+
+                            }
+                        );
+
+
+                        card.style.transform =
+                            "translateY(-9px) scale(1.02)";
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
